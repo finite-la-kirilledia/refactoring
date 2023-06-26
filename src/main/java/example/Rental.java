@@ -17,4 +17,26 @@ public class Rental {
     public Movie getMovie() {
         return _movie;
     }
+
+    public double getCost() {
+        double cost = 0;
+        switch (getMovie().getPriceCode()) {
+            case Movie.REGULAR:
+                cost += 2;
+                if (getDaysRented() > 2) {
+                    cost += (getDaysRented() - 2) * 15;
+                }
+                break;
+            case Movie.NEW_RELEASE:
+                cost += getDaysRented() * 3;
+                break;
+            case Movie.CHILDRENS:
+                cost += 15;
+                if (getDaysRented() > 3) {
+                    cost += (getDaysRented() - 3) * 15;
+                }
+                break;
+        }
+        return cost;
+    }
 }

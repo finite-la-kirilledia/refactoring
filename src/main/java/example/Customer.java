@@ -29,7 +29,7 @@ public class Customer {
             Rental each = (Rental) rentals.nextElement();
 
             //определить сумму для каждой строки
-            double thisAmount = calculateRentalCost(each);
+            double thisAmount = each.getCost();
 
             // добавить очки для активного арендатора
             frequentRenterPoints++;
@@ -50,27 +50,5 @@ public class Customer {
         result += "Вы заработали " + String.valueOf(frequentRenterPoints) +
                 " очков за активность";
         return result;
-    }
-
-    private double calculateRentalCost(Rental rental) {
-        double cost = 0;
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                cost += 2;
-                if (rental.getDaysRented() > 2) {
-                    cost += (rental.getDaysRented() - 2) * 15;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                cost += rental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                cost += 15;
-                if (rental.getDaysRented() > 3) {
-                    cost += (rental.getDaysRented() - 3) * 15;
-                }
-                break;
-        }
-        return cost;
     }
 }
