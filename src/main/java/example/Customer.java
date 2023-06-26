@@ -26,18 +26,18 @@ public class Customer {
         Enumeration rentals = _rentals.elements();
         String result = "Учет аренды для " + getName() + "\n";
         while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
+            Rental rental = (Rental) rentals.nextElement();
 
             //определить сумму для каждой строки
-            double thisAmount = each.getCost();
+            double rentalCost = rental.getCost();
 
             // добавить очки для активного арендатора
-            frequentRenterPoints += each.getFrequentRenterPoints();
+            frequentRenterPoints += rental.getFrequentRenterPoints();
 
             //показать результаты для этой аренды
-            result += "\t" + each.getMovie().getTitle() + "\t" +
-                    String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+            result += "\t" + rental.getMovie().getTitle() + "\t" +
+                    String.valueOf(rentalCost) + "\n";
+            totalAmount += rentalCost;
         }
         //добавить нижний колонтитул
         result += "Сумма задолженности составляет " +
