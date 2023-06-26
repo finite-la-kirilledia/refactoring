@@ -1,5 +1,7 @@
 package example;
 
+import org.testng.Assert;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,6 +17,17 @@ public class Main {
         customer.addRental(new Rental(оппенгеймер, 3));
         customer.addRental(new Rental(гонка, 4));
 
-        System.out.println(customer.statement());
+        String statement = customer.statement();
+        System.out.println(statement);
+
+        String expected = "Учет аренды для Martin\n" +
+                "\tОдин дома	15.0\n" +
+                "\tКороль Лев	15.0\n" +
+                "\tОппенгеймер	9.0\n" +
+                "\tГонка	32.0\n" +
+                "Сумма задолженности составляет 71.0\n" +
+                "Вы заработали 5 очков за активность";
+
+        Assert.assertEquals(expected, customer.statement());
     }
 }
