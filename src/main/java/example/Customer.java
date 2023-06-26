@@ -24,7 +24,7 @@ public class Customer {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = _rentals.elements();
-        String result = "Учет аренды для" + getName() + "\n";
+        String result = "Учет аренды для " + getName() + "\n";
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
@@ -60,10 +60,10 @@ public class Customer {
             totalAmount += thisAmount;
         }
         //добавить нижний колонтитул
-        result += "Сумма задолженности составляет" +
+        result += "Сумма задолженности составляет " +
                 String.valueOf(totalAmount) + "\n";
         result += "Вы заработали " + String.valueOf(frequentRenterPoints) +
-                "очков за активность";
+                " очков за активность";
         return result;
     }
 }
