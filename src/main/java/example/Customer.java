@@ -27,14 +27,12 @@ public class Customer {
             Rental rental = (Rental) rentals.nextElement();
 
             //показать результаты для этой аренды
-            result += "\t" + rental.getMovie().getTitle() + "\t" +
-                    String.valueOf(rental.getCost()) + "\n";
+            result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getCost() + "\n";
         }
 
         //добавить нижний колонтитул
         result += "Сумма задолженности составляет " + getTotalCost() + "\n";
-        result += "Вы заработали " + String.valueOf(getTotalFrequentRenterPoints()) +
-                " очков за активность";
+        result += "Вы заработали " + getTotalFrequentRenterPoints() + " очков за активность";
         return result;
     }
 
